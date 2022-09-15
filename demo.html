@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<script>
+    /* VAR */
+    var x = 'hola';
+    console.log('Aqui va el missatge');
+    x = 'adeu';
+    console.log(x);
+    x = 9;
+    console.log(x);
+
+    /* LET */
+    let m = 'Samuel';
+    console.log(m);
+    m = 10;
+    console.log(m);
+    //alert("hola " + m);
+
+    /* Creació d'una funció */
+    function validation(){
+        let user = document.getElementById("login").value;
+        let password = document.getElementById("password").value;
+        if(user.length === 0 || user.length < 1){
+            //alert("ERROR");
+    
+            //Pinta de color vermell el borde del input name
+            document.getElementById("login").style.borderColor = "red";
+        }
+    }
+
+    /* Funció que cambia un text per el parametre que li passem com a usuari*/
+    function mostrarUsuari(usuari,contrasenya){
+        document.getElementById("daw2").innerHTML = usuari;
+        //document.getElementById("daw2").innerText = usuari;
+    }
+
+    function ocultarTitol(){
+        document.getElementById("title").style.visibility = "hidden";
+    }
+
+</script>
+<style lang="CSS"> 
+    body {
+        margin: 3%;
+    }
+</style>
+<body>
+    <h1 id="title">TEST JAVASCRIPT</h1>
+        <div>
+            <h2 id="daw2">Daw 2</h2><br/>
+            <input type="text" name="login" placeholder="nombre usuario" id="login"/>
+            <input type="password" name="password" id="password"/>
+            <!-- amb l'atribut onclick li fiquem que al fer click executi la funció validation() -->
+            <button type="button" text="enviar" onclick="ocultarTitol()" value="enviar">ENVIAR</button>
+        </div>    
+</body>
+<script>
+    /* UTILITZANT LES VARIABLES ANTERIORS*/
+    m = 25;
+    console.log("Fora clau " + m);
+
+    /* Diferencia entre let i var (scope de les variables)
+    *
+    * var té un abast global el que vol dir que podem accedir a la variable desde tot el programa,
+    * en canvi let nomes té un abast al bloc de programa a on l'estem utilitzant.
+    * 
+    */
+
+   //EXEMPLE VAR
+   var numero = 10;
+   console.log(numero); //valor 10
+
+   if(true){
+    var numero = 20; 
+    console.log(numero); //valor 20
+   }
+
+   //En aquest cas s'ha guardat el valor que li hem assignat dins de l'if i la variable es quedará amb un valor de 20
+   console.log(numero); //valor 20
+
+   //EXEMPLE LET
+   var text = "Hola";
+   console.log(text); //valor "Hola"
+
+   if(true){
+    let text = "Adeu";
+    console.log(text); //valor "Adeu"
+   }
+
+   //En aquest cas la variable no es sobrescriu encara que es diguin igual, si no que la que está dins de l'if es una nova que només es pot fer servir en aquell bloc
+   console.log(text); //valor "Hola"
+
+
+   /*
+   * Diferencia entre els operador de comparació == i ===
+   *
+   * == : es un comparador que verifica que les expresions comparades siguin iguals sense importar el tipus de dada, per exemple en aquest cas 9 == "9"  es verdader ja que no importa el tipus de dada, donat que un es un numero i l'altre un string.
+   * 
+   * === : es un comparador que ademes de verificar que les expresions comparades siguin iguals també han de tindre el mateix tipus de dada, per exemple el cas anterior tornaria false ja que no son del mateix tipus de dada.
+   */
+   
+</script>
+</html>
