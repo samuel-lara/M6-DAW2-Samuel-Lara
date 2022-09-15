@@ -1,0 +1,23 @@
+body{
+    background-color: #CACACA;
+    color: #433c3c;
+}
+
+.container{
+    text-align: center;
+}
+
+#boton{
+    padding: 5px;
+    color: white;
+    background-color: #1883ba;
+    border-radius: 50px;
+    border: 1px solid #0016b0;
+}
+
+#password, #user{
+    padding: 5px;
+    border-radius: 50px;
+    border: 1px solid #a9acc1;
+}
+
