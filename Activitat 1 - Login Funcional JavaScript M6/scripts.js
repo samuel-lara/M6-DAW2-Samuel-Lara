@@ -9,27 +9,40 @@ function validation(){
     //Variables dels inputs
     let user = document.getElementById('user').value;
     let password = document.getElementById('password').value;
+    let boton = document.getElementById('boton');
 
     //Variable que escriu misstge d'informació
     let info = document.getElementById('info');
-    
-    if(user.length != 0 && password.length != 0){
-        let title = document.getElementById('title');
-        title.innerHTML = 'CORRECTE';
-        title.style.color = 'green';
 
+    //Expresion regular per a validar un email
+    let validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+
+    if(validEmail.test(user)){
+        let title = document.getElementById('title');
+
+        //Ocultem el botó enviar per a que no s'envie l'event al servidor
+        boton.style.visibility = "hidden";
+
+        title.innerHTML = 'Correcte, dirigint a la pàgina...';
+        title.style.color = 'green';
+        
+        //espera de 5 segons per a redirigir a la web de l'intitut montsià
+        setTimeout(function(){
+            window.location.href = "https://agora.xtec.cat/insmontsia/";
+        }, 5000);
+
+
+        
         //Si la validació es correcta no mostrará cap informació per pantalla, podem utilitzar style.visibility = "hidden", pero un cop es valida no torna enrere
         info.innerHTML = '';
+
     } else {
         title.innerHTML = 'ERROR';
         title.style.color = 'red';
 
-        if(user.length != 0 && password.length === 0){
-            info.innerHTML = "Cal escriure una contrasenya vàlida";
-        } else if (user.length === 0 && password.length != 0){
-            info.innerHTML = "Cal escriure un nom d'usuari vàlid";
-        } else {
-            info.innerHTML = "Cal escriure un nom d'usuari i contrasenya vàlids";
-        } 
+        info.innerHTML = "Cal escriure un email vàlid";
     }
 }
+
+
