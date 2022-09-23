@@ -9,7 +9,7 @@ function validation(){
     //Variables dels inputs
     let user = document.getElementById('user').value;
     let password = document.getElementById('password').value;
-    let boton = document.getElementById('boton');
+    
 
     //Variable que escriu misstge d'informació
     let info = document.getElementById('info');
@@ -20,12 +20,15 @@ function validation(){
 
     if(validEmail.test(user)){
         let title = document.getElementById('title');
+        const boton = document.getElementById('boton');
 
         //Ocultem el botó enviar per a que no s'envie l'event al servidor
-        boton.style.visibility = "hidden";
+        //boton.style.visibility = "hidden";
+        
 
         title.innerHTML = 'Correcte, dirigint a la pàgina...';
         title.style.color = 'green';
+        boton.disabled = true;
         
         //espera de 5 segons per a redirigir a la web de l'intitut montsià
         setTimeout(function(){
