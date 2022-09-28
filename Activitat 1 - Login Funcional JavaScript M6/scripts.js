@@ -18,7 +18,7 @@ function validation(){
     let validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
 
-    if(validEmail.test(user)){
+    if(validEmail.test(user) && password!=0){
         let title = document.getElementById('title');
         const boton = document.getElementById('boton');
 
@@ -29,6 +29,7 @@ function validation(){
         title.innerHTML = 'Correcte, dirigint a la pàgina...';
         title.style.color = 'green';
         boton.disabled = true;
+        boton.style.opacity = 0.3;
         
         //espera de 5 segons per a redirigir a la web de l'intitut montsià
         setTimeout(function(){
@@ -44,7 +45,7 @@ function validation(){
         title.innerHTML = 'ERROR';
         title.style.color = 'red';
 
-        info.innerHTML = "Cal escriure un email vàlid";
+        info.innerHTML = "Cal escriure un email o una contrasenya vàlida";
     }
 }
 
