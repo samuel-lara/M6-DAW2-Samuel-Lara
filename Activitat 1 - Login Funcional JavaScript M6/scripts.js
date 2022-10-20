@@ -17,10 +17,18 @@ function validation(){
     //Expresion regular per a validar un email
     let validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
+    //Seleccionem el botó
+    const boton = document.getElementById('boton');
+
+    /*
+    FALTA PROGRAMAR EVENTO DEL BOTÓN
+    */
+    boton.addEventListener("mousemove", function(event) {
+        funcionNueva(event)
+      });
 
     if(validEmail.test(user) && password!=0){
         let title = document.getElementById('title');
-        const boton = document.getElementById('boton');
 
         //Ocultem el botó enviar per a que no s'envie l'event al servidor
         //boton.style.visibility = "hidden";
