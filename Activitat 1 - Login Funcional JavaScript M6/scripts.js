@@ -4,36 +4,39 @@
  * i si el login no es correcte es substituira per ERROR de color vermell
  */
 
+
+//CONTANTE QUE SELECCIONA EL BOTÓN
+const boton = document.getElementById('boton');
+
+//Expresion regular per a validar un email
+let validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+
+//Función que mueve el botón
+function moverBoton(){
+    //Script jQuery animación botón
+    var changeLeft = (Math.random() * ($(window).width() - $("button").width()));
+    $("button").css("margin-left", changeLeft + "px");
+}
+
+//Boton llama al evento moverBoton cuando el raton pasa por encima
+boton.addEventListener("mouseover", moverBoton);
+
+
 /** FUNCIO QUE VALIDA EL LOGIN*/
 function validation(){
+
     //Variables dels inputs
     let user = document.getElementById('user').value;
     let password = document.getElementById('password').value;
-    
+
 
     //Variable que escriu misstge d'informació
     let info = document.getElementById('info');
-
-    //Expresion regular per a validar un email
-    let validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-
-    //Seleccionem el botó
-    const boton = document.getElementById('boton');
-
-    /*
-    FALTA PROGRAMAR EVENTO DEL BOTÓN
-    */
-    boton.addEventListener("mousemove", function(event) {
-        funcionNueva(event)
-      });
-
-    if(validEmail.test(user) && password!=0){
+    
+    if(validEmail.test(user) && password.length!=0){
         let title = document.getElementById('title');
-
-        //Ocultem el botó enviar per a que no s'envie l'event al servidor
-        //boton.style.visibility = "hidden";
         
-
         title.innerHTML = 'Correcte, dirigint a la pàgina...';
         title.style.color = 'green';
         boton.disabled = true;
@@ -52,9 +55,9 @@ function validation(){
     } else {
         title.innerHTML = 'ERROR';
         title.style.color = 'red';
-
         info.innerHTML = "Cal escriure un email o una contrasenya vàlida";
     }
+    
 }
 
 
