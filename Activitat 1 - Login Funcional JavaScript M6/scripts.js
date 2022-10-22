@@ -17,10 +17,23 @@ function moverBoton(){
     //Script jQuery animación botón
     var changeLeft = (Math.random() * ($(window).width() - $("button").width()));
     $("button").css("margin-left", changeLeft + "px");
+    boton.style.backgroundColor = "red"
 }
 
 //Boton llama al evento moverBoton cuando el raton pasa por encima
 boton.addEventListener("mouseover", moverBoton);
+
+
+
+/* FUNCION DE ONBLUR QUE COMPARA LOS DATOS DE UN CAMPO CON EL OTRO */
+function validarCampo(parameter){
+    //Variables dels inputs
+    if(password.length!=0){
+        boton.removeEventListener("mouseover", moverBoton);
+        boton.style.marginLeft = "0px";
+        boton.style.backgroundColor = "green"
+    }
+}
 
 
 /** FUNCIO QUE VALIDA EL LOGIN*/
@@ -56,6 +69,7 @@ function validation(){
         title.innerHTML = 'ERROR';
         title.style.color = 'red';
         info.innerHTML = "Cal escriure un email o una contrasenya vàlida";
+        boton.addEventListener("mouseover", moverBoton);
     }
     
 }

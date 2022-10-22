@@ -15,9 +15,11 @@
         <h1 id="title">LOGIN JAVASCRIPT</h1>
             <div class="formulario">
                 <h2 id="info"></h2>
-                    <input type="text" name="user" placeholder="email" id="user" pattern= "" required></form></br>                
-                    <input type="password" name="password" id="password" placeholder="contrasenya" required>
+                <form action="">
+                    <input type="text" name="user" placeholder="email" id="user" required><br>           
+                    <input type="password" name="password" id="password" placeholder="contrasenya" onkeydown="validarCampo(this)" required><br>
                     <button type="button" text="enviar" onclick="validation()" value="enviar" id="boton">ENVIAR</button>
+                </form>
             </div>
     </div><!-- .container --> 
     <script src="scripts.js"></script>
