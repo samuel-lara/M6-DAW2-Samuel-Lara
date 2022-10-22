@@ -26,7 +26,7 @@ boton.addEventListener("mouseover", moverBoton);
 
 
 /* FUNCION DE ONBLUR QUE COMPARA LOS DATOS DE UN CAMPO CON EL OTRO */
-function validarCampo(parameter){
+function validarCampo(){
     //Variables dels inputs
     if(password.length!=0){
         boton.removeEventListener("mouseover", moverBoton);
